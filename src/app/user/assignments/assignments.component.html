@@ -1,0 +1,47 @@
+<div>
+    <div style="display: flex">
+      <h1>Assignments</h1>
+    </div>
+  <div class="table-overflow">
+    <table class="tbl-align">
+      <thead>
+        <tr>
+          <th>SI No</th>
+          <th>Student Name</th>
+          <th>Roll Number</th>
+          <th>Subject</th>
+          <th>Assignments</th>
+          <th>Upload</th>
+      </thead>
+      <tbody
+        *ngFor="let student of studentDetails; let i = index"
+        class="tbody-align"
+      >
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ student.userName }}</td>
+          <td>{{student.rollNumber}}</td>
+          <td>
+            <select class="form-select" aria-label="Default select example" (change)="checkPdf(student, i)" [(ngModel)]="SelectedSubject[i]">
+                <option value="" selected hidden >Subject</option>
+                <option value="Tamil">Tamil</option>
+                <option value="English">English</option>
+                <option value="Maths">Maths</option>
+                <option value="Science">Science</option>
+                <option value="Social">Social</option>
+            </select>
+          </td>
+          <td><input type="file" name="" (change)= "fileChange( student,$event)" #filetype id="file">
+            <button style="display: contents;" (click)="filetype.click()">
+                <img style="width: 25px; height :25px" src="assets/img/pdf.svg" alt="">
+            </button>
+             <span>{{student.fileName}}</span>
+             <!-- <button (click)="download(student)">Download</button> -->
+            </td>
+            <td><button (click)="upload(student, i)">Upload</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  

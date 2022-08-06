@@ -1,0 +1,67 @@
+.Login-form-align{
+    background-color: blanchedalmond;
+    margin-left: 700px;
+    margin-top: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    width: 380px;
+    height: 380px;
+}
+.forgot-password{
+    font-weight: 500;
+    text-decoration: none;
+    color: #404040;
+}
+.forgot-align{
+    margin-top: -20px;
+    margin-left: 165px;
+}
+.floating-label-group {
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 25px;
+
+	.floating-label {
+		font-size: 13px;
+		color: #cccccc;
+		position: absolute;
+		pointer-events: none;
+		top: 9px;
+		left: 12px;
+		transition: all 0.1s ease;
+	}
+
+	input:focus ~ .floating-label,
+	input:not(:focus):valid ~ .floating-label {
+		top: -25px;
+		bottom: 0px;
+        font-weight: 500;
+		left: 0px;
+		font-size: 15px;
+		opacity: 1;
+		color: #404040;
+        span{
+            color: red;
+        }
+	}
+}
+.form-control{
+  width: 290px;
+}
+.btn-align{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btn{
+    width: 290px
+}
+.password-eye{
+    height: 30px; 
+    width: 35px;
+    position: relative;
+    right: 45px;
+    top: 5px;
+}
+.text-align{
+    position: absolute;
+    top: 40px;
+}

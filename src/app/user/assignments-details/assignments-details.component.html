@@ -1,0 +1,25 @@
+<div style="display : flex"> 
+   <h1>Assignment Details</h1>
+   <h5 class="subject-align">Selected Subject {{selectedSubject}}</h5>
+   <select name="" class="form-select" (change)="selected()" id="" [(ngModel)]="selectedSubject">
+       <option value="Tamil" >Tamil</option>
+       <option value="English">English</option>
+       <option value="Maths">Maths</option>
+       <option value="Science">Science</option>
+       <option value="Social">Social</option>
+   </select>
+</div>
+<div *ngIf="students.length">
+<div style="margin-bottom:20px; margin-top: 10px;" *ngFor="let student of students">
+    <div class="card">
+        <div style="display: flex;" class="card-body">
+         {{student.userName}} 
+         <div style="margin-left: 500px; position:absolute">{{student.subject}}</div>
+         <div style="margin-left: 1000px; bottom: 10px; position:absolute"><button class="btn btn-primary" (click)="download(student)" >Download</button></div> 
+        </div>
+      </div>
+</div>
+</div>
+<div *ngIf="!students.length">
+    No assignments 
+</div>

@@ -1,0 +1,66 @@
+<div>
+<div  class="Login-form-align">
+  <div style="padding-left:30px ; padding-top: 10px;">
+  <div>
+  <h1>Log In</h1>
+</div>
+<form novalidate (ngSubmit)="submit()" [formGroup]="logInForm">
+  <div class="row">
+		<div class="col-xs-4 col-xs-offset-4">
+			<div class="floating-label-group">
+        <div class="form-group">
+			<input type="email" class="form-control" formControlName="email" autocomplete="off" autofocus required />
+				<label class="floating-label">Email <span>*</span></label>
+			
+		  <span
+      class="text-danger" style="display:absolute ;"
+      *ngIf="logInForm.controls['email'].dirty && logInForm.hasError('required', 'email')"
+    >
+      Email Id is required
+    </span>
+  </div>
+  </div>
+			<div style="display:flex ;" class="floating-label-group">
+			<input [type]="show ? 'password' : 'text'" class="form-control" formControlName="password" autocomplete="off" required />
+			<label class="floating-label">Password<span>*</span></label>
+      <img *ngIf="!show" (click)="eyeChange()" class="password-eye" src="assets/img/view.png" alt="">
+      <img *ngIf="show" (click)="eyeChange()" class="password-eye" src="assets/img/hidden.png" alt="" ><br>
+      <span class="text-danger text-align" *ngIf="logInForm.controls['password'].dirty && logInForm.hasError('required','password')">Password is required</span>
+			</div>
+		</div>
+	</div>
+  <!-- <div class="form-group">
+    <label for="">Email</label>
+    <input type="email" formControlName="email" />
+    <span
+      class="text-danger"
+      *ngIf="logInForm.controls['email'].dirty && logInForm.hasError('required', 'email')"
+    >
+      Email Id is Required
+    </span>
+  </div> -->
+
+  <!-- <div>
+    <label for="">Password</label>
+    <input type="password" formControlName="password" />
+  </div> -->
+  <div class="forgot-align">
+    <a href="" class="forgot-password" routerLink = '/forgot'>Forgot password?</a>
+  </div>
+  <div class="btn-align">
+    <button class="btn btn-primary" [disabled]="!logInForm.valid">SIGN IN</button>
+  </div>
+  <div>
+    <span style="margin-left: 60px; font-weight: 500;">Don't have an account?</span><br>   
+    <a href="" routerLink="/signup" style="margin-left: 125px;"> SIGN UP</a>
+  </div>
+  
+</form>
+</div>
+</div>
+</div>
+<!-- <div>
+  <input type="text" maxlength="10" [(ngModel)]="first">
+  <input type="text" name="" id="" [(ngModel)]="second">
+  <button (click)="result()" class="btn btn-primary">Result</button>
+</div> -->

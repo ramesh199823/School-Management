@@ -1,0 +1,122 @@
+<div class="add-student">
+    <h1>Student Details Form</h1> 
+    <div style="margin-left:100px; margin-top: 50px;">
+    <div style="position:relative ;">
+    <div class="floating-label-group">
+        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="firstName" autofocus required />
+            <label class="floating-label">First Name<span>*</span></label>
+    <!-- <span
+    class="text-danger"
+    *ngIf="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required', 'firstName')">
+    First Name is required
+  </span> -->
+        </div>
+        <div class="avatar-align">
+            <input type="file" name="" id="fileInput" #fileInput (change)="fileChange($event)">
+            <img class="avatar" *ngIf="addImage" [src]="addImage" alt="img">
+            <button (click)="fileInput.click()" style="display: contents;"><img class="plus-img-align" src="assets/img/plus1.svg" alt=""></button>
+        </div>
+    </div>
+    <!-- <div>
+        <label for="">First Name</label>
+        <input type="text" [(ngModel)]="firstName">
+    </div> -->
+    <div style="width: 290px;" class="floating-label-group">
+        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="lastName" autofocus required />
+            <label class="floating-label">Last Name<span>*</span></label>
+    <!-- <span
+    class="text-danger"
+    *ngIf="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required', 'firstName')">
+    First Name is required
+  </span> -->
+  </div>
+
+    <!-- <div>
+        <label for="">Last Name</label>
+        <input type="text" [(ngModel)]="lastName">
+    </div> -->
+  <div class="floating-label-group">
+    <input type="email" class="form-control" autocomplete="off" [(ngModel)]="email" autofocus required />
+        <label class="floating-label">Email<span>*</span></label>
+<!-- <span
+class="text-danger"
+*ngIf="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required', 'firstName')">
+First Name is required
+</span> -->
+</div>
+    <!-- <div>
+        <label for="">Email</label>
+        <input type="email" [(ngModel)]="email">
+    </div> -->
+    <div class="floating-label-group">
+        <input type="tel" class="form-control" autocomplete="off" [(ngModel)]="phoneNumber" autofocus required />
+            <label class="floating-label">Phone Number<span>*</span></label>
+    <!-- <span
+    class="text-danger"
+    *ngIf="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required', 'firstName')">
+    First Name is required
+    </span> -->
+    </div>
+    <!-- <div>
+        <label for="">Phone Number</label>
+        <input type="tel" [(ngModel)]="phoneNumber">
+    </div> -->
+    <div class="floating-label-group">
+        <input type="tel" class="form-control" autocomplete="off" [(ngModel)]="rollNumber" autofocus required />
+            <label class="floating-label">Roll Number<span>*</span></label>
+    <!-- <span
+    class="text-danger"
+    *ngIf="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required', 'firstName')">
+    First Name is required
+    </span> -->
+    </div>
+    <!-- <div>
+        <label for="">Roll Number</label>
+        <input type="text" [(ngModel)]="rollNumber">
+    </div> -->
+    <div style="display: flex;">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="seletedGender">
+            <option  value="" selected hidden >Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Transgender">Transgender</option>
+          </select>
+    </div>
+    <div style="display: flex; margin-bottom: 25px;">
+        <form class="row row-cols-sm-auto">
+            <div class="col-12">
+              <div class="input-group">
+                <input class="form-control" placeholder="Date of birth(YYYY-MM-DD)"
+                       name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><img style="opacity:0.8; width:25px; height:30px" src="assets/img/calendar.svg" alt=""></button>
+              </div>
+            </div>
+          </form>
+    </div>
+       <span style="position: relative; left: -45px;">Address</span>
+       <div class="floating-label-group">
+        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="StreetLine1" autofocus required />
+            <label class="floating-label">Street Address<span>*</span></label>
+       </div>
+       <div class="floating-label-group">
+        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="City" autofocus required />
+            <label class="floating-label">City<span>*</span></label>
+       </div>
+       <div class="floating-label-group">
+        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="District" autofocus required />
+            <label class="floating-label">District<span>*</span></label>
+       </div>
+       <div class="floating-label-group">
+        <input type="tel" class="form-control" autocomplete="off" [(ngModel)]="Pincode" autofocus required />
+            <label class="floating-label">Postel Code<span>*</span></label>
+       </div>
+       <div class="floating-label-group">
+        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="State" autofocus required />
+            <label class="floating-label">State<span>*</span></label>
+       </div>
+    <div>
+      <button class="btn btn-primary" *ngIf="value == 1" style="margin-top: 40px; margin-left: 500px;" (click)="submit()">Submit</button>
+      <button class="btn btn-primary" *ngIf="value == 2" style="margin-top: 40px; margin-left: 500px;" (click)="submit()">Update</button>
+    </div>
+    </div>
+</div>

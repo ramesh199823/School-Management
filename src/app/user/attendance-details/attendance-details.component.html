@@ -1,0 +1,50 @@
+<div>
+  <div style="display: flex">
+    <h1>Attendance Details</h1>
+    <select class="form-select" style="margin-left: 540px;" aria-label="Default select example" (change)="dateChange()" [(ngModel)]="selectedMonth">
+        <option value="" hidden selected>Month</option>
+        <option *ngFor="let month of months"  value="{{month}}">{{month}}</option>
+    </select>
+    <select class="form-select" aria-label="Default select example"  (change)="dateChange()" [(ngModel)]="selectedYear">
+        <option value="" hidden selected>Year</option>
+        <option *ngFor="let year of years"  value="{{year}}">{{year}}</option>
+    </select>
+  </div>
+<div class="table-overflow">
+  <table class="tbl-align">
+    <thead>
+      <tr>
+        <th>SI No</th>
+        <th>Student Name</th>
+        <th *ngFor="let date of dates">{{ date }}</th>
+      </tr>
+      <tr style="background-color:antiquewhite  ;">
+          <th></th>
+          <th></th>
+          <th *ngFor="let week of weekNames">{{week[0]}}</th>
+      </tr>
+    </thead>
+    <tbody
+      *ngFor="let student of studentDetails; let i = index"
+      class="tbody-align"
+    >
+      <tr>
+        <td>{{ i + 1 }}</td>
+        <td>{{ student.userName }}</td>
+        <td *ngFor="let date of dates">
+        <span *ngFor="let registerMonth of registerMonths ">
+        <span *ngIf="registerMonth==selectedMonth">
+          <span *ngFor="let value of values let ind = index"
+            ><span *ngIf="registerMonth==selectedMonth && date+'-'+ selectedMonth == value"
+              ><span style="color: green;" *ngIf="student.presentArray[ind] == 'present'">P</span>
+              <span style="color: red;" *ngIf="student.presentArray[ind] == 'absent'">A</span>
+              </span
+          ></span>
+        </span>
+      </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

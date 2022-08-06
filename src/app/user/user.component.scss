@@ -1,0 +1,17 @@
+body {
+    min-height: 100vh;
+}
+.side-bar {
+    background-color: rgb(249, 242, 242);
+    width: 20%;
+    min-width: 275px;
+}
+
+.main-sec {
+    background-color: rgb(248, 247, 247);
+    flex: 1;
+    padding: 15px;
+}
+.body {
+    display: flex;
+}

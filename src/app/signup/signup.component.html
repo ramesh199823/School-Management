@@ -1,0 +1,83 @@
+<div class="signin-form-align">
+<h2>SignUp Form</h2>
+<form style="margin-left:100px" novalidate (ngSubmit)="submit()" [formGroup]="signUpForm">
+  <div class="row">
+		<div class="col-xs-4 col-xs-offset-4">
+			<div class="floating-label-group">
+			<input type="text" class="form-control" autocomplete="off" formControlName="firstName" autofocus required />
+				<label class="floating-label">First Name<span>*</span></label>
+        <span
+        class="text-danger"
+        *ngIf="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required', 'firstName')">
+        First Name is required
+      </span>
+			</div>
+		
+			<div class="floating-label-group">
+			<input type="text"  class="form-control" formControlName="lastName" autocomplete="off" required />
+			<label class="floating-label">Last Name<span>*</span></label>
+      <span
+        class="text-danger"
+        *ngIf="signUpForm.controls['lastName'].dirty && signUpForm.hasError('required', 'lastName')">
+        Last Name is required
+      </span>
+			</div>
+      <div class="floating-label-group">
+        <input type="email"  class="form-control" formControlName="email" autocomplete="off" required />
+        <label class="floating-label">Email<span>*</span></label>
+        <span
+         class="text-danger"
+         *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email')">
+         Email Id is required
+       </span>
+        </div>
+        <div class="floating-label-group">
+          <input type="tel" (keydown)="phoneKeyUp($event)"  class="form-control" maxlength="10" formControlName="phoneNumber" autocomplete="off" required />
+          <label class="floating-label">Phone Number<span>*</span></label>
+          <span
+           class="text-danger"
+           *ngIf="signUpForm.controls['phoneNumber'].dirty && signUpForm.hasError('required', 'phoneNumber')">
+           Phone Number is required
+         </span>
+          </div>
+          <div class="floating-label-group">
+            <input type="password"  class="form-control"  formControlName="password" autocomplete="off" required />
+            <label class="floating-label">Password<span>*</span></label>
+            <span
+              class="text-danger"
+              *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password')">
+              Password is required
+            </span>
+            </div>
+        
+		</div>
+	</div>
+<!-- <div>
+    <label for="">First Name</label>
+    <input type="text" formControlName="firstName">
+  </div>
+  <div>
+    <label for="">Last Name</label>
+    <input type="text" formControlName="lastName">
+  </div>
+  <div>
+    <label for="">Email</label>
+    <input type="email" formControlName="email">
+  </div>
+  <div>
+    <label for="">Phone Number</label>
+    <input type="tel" maxlength="10" formControlName="phoneNumber">
+  </div>
+  <div>
+    <label for="">Password</label>
+    <input type="password" formControlName="password">
+  </div> -->
+  <div>
+     <button class="btn btn-primary"  [disabled]="!signUpForm.valid">SignUp</button>
+  </div>
+  <div style="margin-bottom: 20px;">
+    <span style="margin-left: 60px">Already have an account?</span><br>   
+    <a href="" routerLink="/login" style="margin-left: 125px;">SIGN IN</a>
+  </div>
+</form>
+</div>

@@ -1,0 +1,95 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #72c9e6;
+  }
+  tbody{
+    tr:hover{
+       background-color: beige;
+       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+}
+.delete-icon:hover{
+   cursor: pointer;
+}
+.edit-icon:hover{
+    cursor: pointer;
+ }
+ .address{
+   max-width: 150px;
+   overflow: hidden;
+   white-space: nowrap;
+ }
+ .pagination{
+  margin-top: 30px;
+  margin-left: 880px;
+ }
+ .show{
+  margin-left: 20px;
+  margin-top: 7px;
+ }
+ .position{
+  width: 80px !important;
+  height: 38px !important;
+  margin-left: 10px !important;
+ }
+.table-overflow{
+  height: 502px;
+  overflow: auto;
+}
+ .tbl-align{
+   .tbody-align{
+     .tr-align{
+       td{
+         padding: 5px;
+       }
+     }
+   }
+ }
+ .positio{
+  width: 171px;
+  margin-left: 450px;
+  height: 37px;
+ }
+ .card-align{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  width: 400px;
+  height: 250px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  left: 700px;
+  top: 250px;
+ }
+ .text-position{
+  text-align: left;
+  margin-top: 55px;
+  margin-left: 20px;
+ }
+ .align{
+   margin-bottom: 10px;
+   display: flex;
+ }
+ .img-align{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 365px;
+  bottom: 220px;
+ }
+.address-align{
+  position: absolute;
+  left: 150px;
+  bottom: 205px;
+}

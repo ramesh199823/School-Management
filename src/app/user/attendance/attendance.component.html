@@ -1,0 +1,48 @@
+<div *ngIf="show == true">
+    <div style="display:flex ;">
+        <h1>Student Attendance</h1>
+        <div style="display:flex ;margin-left: 600px; margin-top: 12px; font-weight: 700;">
+        <label for="">Date: </label>
+        <span>{{ currentDate | date:'dd-MMM-yyyy'}}</span></div>
+    </div>
+    <div class="table-overflow">
+        <table class="tbl-align">
+          <thead>
+            <tr>
+              <th>SI No</th>
+              <th>Student Name</th>
+              <th>Phone Number</th>
+              <th>Gender</th>
+              <th style="width: 85px;">Present</th>
+              <th style="width: 85px;">Absent</th>
+            </tr>
+          </thead>
+          <tbody
+            class="tbody-align"
+            *ngFor="let student of studentDetails; let i = index"
+          >
+            <tr class="tr-align"  class="{{student.presentStatus}}">
+              <td>{{ i + 1 }}</td>
+              <td>{{ student.userName}}</td>
+              <td>{{ student.phoneNumber }}</td>
+              <td>{{ student.gender }}</td>
+              <td><button type="button" class="btn btn-primary btn-size p-color" (click)="student.presentStatus = 'present'">Present</button></td>
+              <td><button type="button" class="btn btn-primary btn-size a-color" (click)="student.presentStatus = 'absent'">Absent</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+          <button class="btn btn-primary" style="margin-left:1100px;"  (click)="submit()">Submit</button>
+      </div>
+</div>
+<div *ngIf="show == false">
+    <div class="card card-align">
+        <div class="card-body">
+            Already Attendance has been submitted!
+        </div>
+        <button type="button" class="btn btn-primary btn-size p-color btn-align">Ok</button>
+      </div>
+      
+</div>
+

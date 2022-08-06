@@ -1,0 +1,107 @@
+<div>
+  <div style="display: flex">
+    <div>
+      <h1>Students Details</h1>
+    </div>
+    <div style="display: flex">
+      <input
+      (ngModelChange)="this.searchQuery.next($event)"
+        class="form-control mr-sm-2 positio"
+        [(ngModel)]="userQuestion" 
+        type="text" 
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button style="height: 38px;" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </div>
+    <div style="display: flex">
+      <label class="show">Show</label>
+      <select
+        class="form-select position"
+        aria-label="Default select example"
+        (change)="pageLimitChange()"
+        [(ngModel)]="itemsPerPage"
+      >
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+  </div>
+  <div class="table-overflow">
+    <table class="tbl-align">
+      <thead>
+        <tr>
+          <th>SI No</th>
+          <th>Roll Number</th>
+          <th>Student Name</th>
+          <th>Email</th>
+          <th>Date of birth</th>
+          <th>Gender</th>
+          <th>Address</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody
+        class="tbody-align"
+        *ngFor="let student of studentDetails; let i = index"
+      >
+        <tr class="tr-align">
+          <td>{{ i + 1 + skip }}</td>
+          <td>{{ student.rollNumber }}</td>
+          <td>{{ student.userName}}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.dob }}</td>
+          <td>{{ student.gender }}</td>
+          <td class="address" (click)="addressDetails(student.address)">{{ student.address }}</td>
+          <td>
+            <span
+              routerLink="/user/addStudent"
+              class="edit-icon"
+              (click)="edit(student)"
+              ><img
+                style="width: 100px; height: 35px"
+                src="assets/img/icons8-edit.svg"
+                alt=""
+            /></span>
+          </td>
+          <td>
+            <span class="delete-icon" (click)="delete(i)"
+              ><img
+                style="width: 100px; height: 35px"
+                src="assets/img/icons8-delete.svg"
+                alt=""
+            /></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+      <div *ngIf="show == true">
+        <div class="card card-align">
+          <h4 class="address-align">Address</h4>
+          <img class="img-align" (click)="addressDetails()" src="assets/img/close.svg" alt="">
+            <div class="card-body text-position">
+               <div class="align">StreetLine: <div>{{addressSplits[0]}}</div></div> 
+               <div class="align">City: <div>{{addressSplits[1]}}</div></div>
+               <div class="align">District: <div>{{addressSplits[2]}}</div></div>
+               <div class="align">Pincode: <div>{{addressSplits[3]}}</div></div>
+               <div class="align">State: <div>{{addressSplits[4]}}</div></div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+<div *ngIf="totalCount > 10">
+  <ngb-pagination
+    class="pagination"
+    [pageSize]="limit"
+    (pageChange)="pageChange($event)"
+    [collectionSize]="totalCount"
+    [(page)]="currentPage"
+    aria-label="Default pagination"
+  ></ngb-pagination>
+</div>
